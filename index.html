@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#09090c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <title>Lidos — Biblioteca visual</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+  <div class="ambient ambient-3"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+
+      <div class="brand" aria-label="Lidos">
+        <span class="brand-mark"></span>
+        <span class="brand-name">lidos.</span>
+      </div>
+
+      <div class="library-count" id="libraryCount">
+        0 livros
+      </div>
+
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <section class="hero">
+
+      <div class="hero-copy">
+        <span class="eyebrow">Sua biblioteca visual</span>
+
+        <h1>
+          Guarde o que você
+          <span>já leu.</span>
+        </h1>
+
+        <p>
+          Sem notas, avaliações ou formulários longos.
+          Apenas as capas dos livros que passaram por você.
+        </p>
+      </div>
+
+
+      <form id="uploadForm" class="upload-form">
+
+        <label
+          for="coverInput"
+          class="upload-card glass"
+          id="dropzone"
+        >
+
+          <input
+            type="file"
+            id="coverInput"
+            accept="image/*"
+            class="file-input"
+          >
+
+          <span class="upload-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 16V4"></path>
+              <path d="M7 9l5-5 5 5"></path>
+              <path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"></path>
+            </svg>
+          </span>
+
+          <span class="upload-title">
+            Adicionar uma capa
+          </span>
+
+          <span class="upload-description">
+            Toque para escolher uma imagem
+            <span class="desktop-only">ou arraste até aqui</span>
+          </span>
+
+          <span class="upload-format">
+            JPG, PNG, WEBP ou HEIC compatível
+          </span>
+
+        </label>
+
+      </form>
+
+      <div
+        class="status"
+        id="uploadStatus"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+    </section>
+
+
+    <section class="library-section">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Coleção</span>
+          <h2>Seus livros</h2>
+        </div>
+
+        <span class="section-counter" id="sectionCounter">
+          0 capas
+        </span>
+      </div>
+
+
+      <div class="empty-state glass" id="emptyState">
+
+        <div class="empty-stack" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <h3>Sua estante ainda está vazia.</h3>
+
+        <p>
+          Adicione a primeira capa para começar sua biblioteca.
+        </p>
+
+      </div>
+
+
+      <div
+        class="book-grid"
+        id="bookGrid"
+        aria-live="polite"
+      ></div>
+
+    </section>
+
+
+    <section class="share-section glass">
+
+      <div class="share-content">
+
+        <span class="section-kicker">Instagram Story</span>
+
+        <h2>
+          Seus últimos 6 livros,
+          em uma imagem.
+        </h2>
+
+        <p>
+          Quando sua biblioteca tiver pelo menos seis capas,
+          o site cria automaticamente um Story em 1080 × 1920 px.
+        </p>
+
+        <div class="share-progress">
+          <div class="share-progress-track">
+            <div
+              class="share-progress-bar"
+              id="shareProgressBar"
+            ></div>
+          </div>
+
+          <span id="shareProgressText">
+            0 de 6 livros
+          </span>
+        </div>
+
+
+        <button
+          type="button"
+          class="share-button"
+          id="shareButton"
+          disabled
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <path d="M8.6 10.6l6.8-4.1"></path>
+            <path d="M8.6 13.4l6.8 4.1"></path>
+          </svg>
+
+          <span id="shareButtonText">
+            Compartilhar Story
+          </span>
+
+        </button>
+
+      </div>
+
+
+      <div class="story-wrapper">
+
+        <div class="story-preview">
+
+          <div class="story-glow story-glow-1"></div>
+          <div class="story-glow story-glow-2"></div>
+
+          <div class="story-preview-header">
+            <span>lidos.</span>
+            <strong>ÚLTIMAS LEITURAS</strong>
+          </div>
+
+          <div
+            class="story-grid"
+            id="storyGrid"
+          >
+          </div>
+
+          <span class="story-footer">
+            6 livros que passaram por aqui
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer container">
+    <p>
+      As capas ficam armazenadas somente neste navegador.
+    </p>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
