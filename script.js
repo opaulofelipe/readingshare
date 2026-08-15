@@ -881,7 +881,7 @@ function drawStoryHeader(ctx) {
     '400 27px -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif';
 
   ctx.fillText(
-    "seis livros que passaram por aqui",
+    "",
     STORY_WIDTH / 2,
     248
   );
